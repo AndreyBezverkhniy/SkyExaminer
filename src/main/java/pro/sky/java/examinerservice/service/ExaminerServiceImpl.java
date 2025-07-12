@@ -2,14 +2,27 @@ package pro.sky.java.examinerservice.service;
 
 import org.springframework.stereotype.Service;
 import pro.sky.java.examinerservice.domain.Question;
+import pro.sky.java.examinerservice.exception.UnavailableAmountRequest;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService{
+    QuestionService questionService;
+
+    public ExaminerServiceImpl(QuestionService questionService) {
+        this.questionService = questionService;
+    }
+
     @Override
     public Collection<Question> getQuestions(int amount) {
-        return null;
+        if(amount>questionService.getAll().size()||amount<=0){
+            throw new UnavailableAmountRequest();
+        }
+        Set<Question> questionList=new HashSet<Question>();
+        while(questionList.size()<amount){
+            questionList.add(questionService.getRandomQuestion());
+        }
+        return questionList;
     }
 }
