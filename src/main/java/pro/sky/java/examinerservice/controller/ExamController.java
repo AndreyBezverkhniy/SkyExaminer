@@ -3,7 +3,7 @@ package pro.sky.java.examinerservice.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pro.sky.java.examinerservice.domain.Question;
-import pro.sky.java.examinerservice.exception.UnavailableAmountRequest;
+import pro.sky.java.examinerservice.exception.UnavailableAmountRequestException;
 import pro.sky.java.examinerservice.service.ExaminerService;
 
 import java.util.Collection;
@@ -17,8 +17,8 @@ public class ExamController {
         this.examinerService = examinerService;
     }
 
-    @ExceptionHandler(UnavailableAmountRequest.class)
-    public ResponseEntity<String> handleException(UnavailableAmountRequest e){
+    @ExceptionHandler(UnavailableAmountRequestException.class)
+    public ResponseEntity<String> handleException(UnavailableAmountRequestException e){
         return ResponseEntity.badRequest().body("Amount can be only from 1 to actual amount of questions");
     }
 
