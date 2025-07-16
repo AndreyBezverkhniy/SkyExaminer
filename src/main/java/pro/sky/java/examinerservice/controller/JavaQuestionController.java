@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/exam/java")
-public class JavaQuestionController{
+public class JavaQuestionController {
     QuestionService questionService;
 
     public JavaQuestionController(QuestionService questionService) {
@@ -20,18 +20,18 @@ public class JavaQuestionController{
 
     @GetMapping("/add")
     Question addQuestion(@RequestParam("question") String question,
-                         @RequestParam("answer") String answer){
-        return questionService.add(question,answer);
+                         @RequestParam("answer") String answer) {
+        return questionService.add(question, answer);
     }
 
     @GetMapping
-    Collection<Question> getQuestions(){
+    Collection<Question> getQuestions() {
         return questionService.getAll();
     }
 
     @GetMapping("/remove")
     Question removeQuestion(@RequestParam("question") String question,
-                            @RequestParam("answer") String answer){
-        return questionService.remove(new Question(question,answer));
+                            @RequestParam("answer") String answer) {
+        return questionService.remove(new Question(question, answer));
     }
 }

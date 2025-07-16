@@ -7,7 +7,7 @@ import pro.sky.java.examinerservice.exception.UnavailableAmountRequestException;
 import java.util.*;
 
 @Service
-public class ExaminerServiceImpl implements ExaminerService{
+public class ExaminerServiceImpl implements ExaminerService {
     QuestionService questionService;
 
     public ExaminerServiceImpl(QuestionService questionService) {
@@ -16,11 +16,11 @@ public class ExaminerServiceImpl implements ExaminerService{
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        if(amount>questionService.getAll().size()||amount<=0){
+        if (amount > questionService.getAll().size() || amount <= 0) {
             throw new UnavailableAmountRequestException();
         }
-        Set<Question> questionList=new HashSet<Question>();
-        while(questionList.size()<amount){
+        Set<Question> questionList = new HashSet<Question>();
+        while (questionList.size() < amount) {
             questionList.add(questionService.getRandomQuestion());
         }
         return questionList;

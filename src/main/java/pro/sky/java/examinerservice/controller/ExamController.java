@@ -18,12 +18,12 @@ public class ExamController {
     }
 
     @ExceptionHandler(UnavailableAmountRequestException.class)
-    public ResponseEntity<String> handleException(UnavailableAmountRequestException e){
+    public ResponseEntity<String> handleException(UnavailableAmountRequestException e) {
         return ResponseEntity.badRequest().body("Amount can be only from 1 to actual amount of questions");
     }
 
     @GetMapping
-    Collection<Question> getQuestions(@RequestParam("amount") int amount){
+    Collection<Question> getQuestions(@RequestParam("amount") int amount) {
         return examinerService.getQuestions(amount);
     }
 }
