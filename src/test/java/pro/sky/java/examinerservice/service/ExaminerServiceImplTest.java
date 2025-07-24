@@ -1,7 +1,5 @@
 package pro.sky.java.examinerservice.service;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,14 +10,16 @@ import org.mockito.stubbing.Answer;
 import pro.sky.java.examinerservice.domain.Question;
 import pro.sky.java.examinerservice.exception.UnavailableAmountRequestException;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ExaminerServiceImplTest {
+class ExaminerServiceImplTest {
     @InjectMocks
     ExaminerServiceImpl examinerServiceImpl;
     @Mock
