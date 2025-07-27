@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class JavaQuestionServiceTest {
-    JavaQuestionService javaQuestionService;
+    private JavaQuestionService javaQuestionService;
 
     @BeforeEach
     public void beforeEachTest() {

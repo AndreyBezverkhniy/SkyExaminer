@@ -21,9 +21,9 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ExaminerServiceImplTest {
     @InjectMocks
-    ExaminerServiceImpl examinerServiceImpl;
+    private ExaminerServiceImpl examinerServiceImpl;
     @Mock
-    QuestionService questionService;
+    private QuestionService questionService;
 
     final Question question1 = new Question("a?", "1");
     final Question question2 = new Question("b?", "2");
