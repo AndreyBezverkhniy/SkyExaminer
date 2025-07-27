@@ -4,11 +4,13 @@ import org.springframework.stereotype.Service;
 import pro.sky.java.examinerservice.domain.Question;
 import pro.sky.java.examinerservice.exception.UnavailableAmountRequestException;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
-    QuestionService questionService;
+    private QuestionService questionService;
 
     public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;

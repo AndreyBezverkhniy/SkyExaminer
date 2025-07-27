@@ -3,12 +3,15 @@ package pro.sky.java.examinerservice.service;
 import org.springframework.stereotype.Service;
 import pro.sky.java.examinerservice.domain.Question;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 @Service
 public class JavaQuestionService implements QuestionService{
     private Set<Question> questions;
-    Random random;
+    private Random random;
 
     public JavaQuestionService() {
         this.questions=new HashSet<Question>();
